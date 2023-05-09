@@ -18,7 +18,7 @@ sealed class EspressoShotCount {
   abstract final mg dose;
 }
 
-class SingleShot implements EspressoShotCount {
+class Single implements EspressoShotCount {
   @override
   ml get dose => 17;
 }
@@ -28,7 +28,7 @@ class Dopio implements EspressoShotCount {
   ml get dose => 16;
 }
 
-class TripleShot implements EspressoShotCount {
+class Triple implements EspressoShotCount {
   @override
   ml get dose => 21;
 }
@@ -42,52 +42,88 @@ abstract class Espresso<T extends EspressoShotCount> extends CoffeeDrink {
 }
 
 class Normale extends Espresso {
-  Normale(EspressoShotCount shot)
+  Normale._(EspressoShotCount shot)
       : super._(
     shot,
     switch (shot) {
-      SingleShot() => 75,
+      Single() => 75,
       Dopio() => 150,
-      TripleShot() => 225,
+      Triple() => 225,
     },
     switch (shot) {
-      SingleShot() => 33,
+      Single() => 33,
       Dopio() => 76,
-      TripleShot() => 99,
+      Triple() => 99,
     },
   );
+
+  factory Normale.singleShot() {
+    return Normale._(Single());
+  }
+
+  factory Normale.dopioShot() {
+    return Normale._(Dopio());
+  }
+
+  factory Normale.tripleShot() {
+    return Normale._(Triple());
+  }
 }
 
 class Ristretto extends Espresso {
-  Ristretto(EspressoShotCount shot)
+  Ristretto._(EspressoShotCount shot)
       : super._(
     shot,
     switch (shot) {
-      SingleShot() => 63,
+      Single() => 63,
       Dopio() => 126,
-      TripleShot() => 189,
+      Triple() => 189,
     },
     switch (shot) {
-      SingleShot() => 17,
+      Single() => 17,
       Dopio() => 38,
-      TripleShot() => 50,
+      Triple() => 50,
     },
   );
+
+  factory Ristretto.singleShot() {
+    return Ristretto._(Single());
+  }
+
+  factory Ristretto.dopioShot() {
+    return Ristretto._(Dopio());
+  }
+
+  factory Ristretto.tripleShot() {
+    return Ristretto._(Triple());
+  }
 }
 
 class Lungo extends Espresso {
-  Lungo(EspressoShotCount shot)
+  Lungo._(EspressoShotCount shot)
       : super._(
     shot,
     switch (shot) {
-      SingleShot() => 80,
+      Single() => 80,
       Dopio() => 160,
-      TripleShot() => 240,
+      Triple() => 240,
     },
     switch (shot) {
-      SingleShot() => 89,
+      Single() => 89,
       Dopio() => 203,
-      TripleShot() => 266,
+      Triple() => 266,
     },
   );
+
+  factory Lungo.singleShot() {
+    return Lungo._(Single());
+  }
+
+  factory Lungo.dopioShot() {
+    return Lungo._(Dopio());
+  }
+
+  factory Lungo.tripleShot() {
+    return Lungo._(Triple());
+  }
 }
