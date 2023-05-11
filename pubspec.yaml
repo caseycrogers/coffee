@@ -1,0 +1,8 @@
+name: coffee_drink
+description: This library provides classes for modelling typical coffee drinks. It currently only supports basic espresso shots.
+repository: https://github.com/caseycrogers/coffee_drink
+
+version: 0.1.0
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
